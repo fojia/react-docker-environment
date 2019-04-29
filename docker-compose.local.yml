@@ -2,11 +2,12 @@ version: '3.2'
 services:
   web:
     container_name: development
-    build:
-      context: .
-      dockerfile: ./docker/local/dockerfiles/dockerfile_node
-    restart: always
-    ports:
-      - 1234:1234
-    networks:
-      - internal
+    working_dir: /var/www/html
+    volumes:
+      - ./:/var/www/html:rw
+    command:
+      - /bin/bash
+      - -c
+      - |
+        npm i
+        npm run dev

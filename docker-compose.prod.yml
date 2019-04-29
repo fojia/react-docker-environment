@@ -5,8 +5,3 @@ services:
     build:
       context: .
       dockerfile: ./docker/prod/dockerfiles/dockerfile_node
-    restart: always
-    ports:
-      - 80:80
-    networks:
-      - internal
